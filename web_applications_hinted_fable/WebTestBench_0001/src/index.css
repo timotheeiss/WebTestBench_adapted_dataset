@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 30% 97%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 12 76% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 25%;
+
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 35 100% 50%;
+    --accent-foreground: 220 20% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 12 76% 61%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --hero-gradient: linear-gradient(135deg, hsl(40 30% 97%) 0%, hsl(35 40% 94%) 100%);
+    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+    --card-shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.04);
+    --button-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+    /* Rating colors */
+    --rating-gold: 45 93% 47%;
+    --rating-empty: 220 14% 85%;
+
+    /* Tag colors */
+    --tag-tech: 210 100% 50%;
+    --tag-home: 150 60% 40%;
+    --tag-fitness: 340 75% 55%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 40 30% 95%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 40 30% 95%;
+
+    --popover: 220 18% 14%;
+    --popover-foreground: 40 30% 95%;
+
+    --primary: 12 76% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 16% 20%;
+    --secondary-foreground: 40 30% 90%;
+
+    --muted: 220 16% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 35 100% 50%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 16% 22%;
+    --input: 220 16% 22%;
+    --ring: 12 76% 61%;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 40 30% 90%;
+    --sidebar-primary: 12 76% 61%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 16% 15%;
+    --sidebar-accent-foreground: 40 30% 90%;
+    --sidebar-border: 220 16% 18%;
+    --sidebar-ring: 12 76% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-shadow-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .category-tag-tech {
+    @apply bg-[hsl(var(--tag-tech)/0.1)] text-[hsl(var(--tag-tech))];
+  }
+
+  .category-tag-home {
+    @apply bg-[hsl(var(--tag-home)/0.1)] text-[hsl(var(--tag-home))];
+  }
+
+  .category-tag-fitness {
+    @apply bg-[hsl(var(--tag-fitness)/0.1)] text-[hsl(var(--tag-fitness))];
+  }
+}

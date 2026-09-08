@@ -1,0 +1,174 @@
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/lato/400.css";
+@import "@fontsource/lato/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 98%;
+    --foreground: 20 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 15% 20%;
+
+    --primary: 350 60% 72%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 25% 65%;
+    --secondary-foreground: 142 30% 20%;
+
+    --muted: 30 20% 94%;
+    --muted-foreground: 20 10% 45%;
+
+    --accent: 38 70% 55%;
+    --accent-foreground: 38 70% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 350 60% 72%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 30 30% 96%;
+    --sidebar-foreground: 20 15% 20%;
+    --sidebar-primary: 350 60% 72%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 142 25% 90%;
+    --sidebar-accent-foreground: 142 30% 20%;
+    --sidebar-border: 30 20% 88%;
+    --sidebar-ring: 350 60% 72%;
+
+    /* Custom wedding colors */
+    --blush: 350 60% 72%;
+    --blush-light: 350 50% 92%;
+    --sage: 142 25% 65%;
+    --sage-light: 142 20% 90%;
+    --gold: 38 70% 55%;
+    --gold-light: 38 60% 85%;
+    --cream: 30 33% 98%;
+    --champagne: 35 40% 90%;
+  }
+
+  .dark {
+    --background: 20 15% 12%;
+    --foreground: 30 20% 95%;
+
+    --card: 20 15% 15%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 20 15% 15%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 350 55% 68%;
+    --primary-foreground: 20 15% 10%;
+
+    --secondary: 142 25% 45%;
+    --secondary-foreground: 142 20% 95%;
+
+    --muted: 20 15% 20%;
+    --muted-foreground: 30 15% 65%;
+
+    --accent: 38 65% 50%;
+    --accent-foreground: 38 70% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 15% 25%;
+    --input: 20 15% 25%;
+    --ring: 350 55% 68%;
+
+    --blush: 350 55% 68%;
+    --blush-light: 350 40% 25%;
+    --sage: 142 25% 45%;
+    --sage-light: 142 20% 20%;
+    --gold: 38 65% 50%;
+    --gold-light: 38 50% 25%;
+    --cream: 20 15% 12%;
+    --champagne: 35 30% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
+  }
+
+  .glass-effect {
+    @apply bg-card/80 backdrop-blur-md;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .romantic-shadow {
+    box-shadow: 0 4px 20px -2px hsl(var(--primary) / 0.15), 
+                0 2px 8px -2px hsl(var(--primary) / 0.1);
+  }
+}
+
+@layer components {
+  .romantic-gradient {
+    @apply bg-gradient-to-br from-blush-light via-background to-sage-light;
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--gold-light)) 0%,
+      hsl(var(--gold)) 50%,
+      hsl(var(--gold-light)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

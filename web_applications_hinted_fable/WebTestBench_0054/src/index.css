@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 187 85% 53%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 18%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 187 85% 53%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 20%;
+    --input: 222 30% 18%;
+    --ring: 187 85% 53%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --node-api: 187 85% 53%;
+    --node-auth: 271 81% 56%;
+    --node-data: 142 71% 45%;
+    --node-ui: 38 92% 50%;
+    --node-core: 346 77% 50%;
+
+    --glow-primary: 0 0 20px hsl(187 85% 53% / 0.4);
+    --glow-secondary: 0 0 30px hsl(187 85% 53% / 0.2);
+
+    --graph-line: 222 30% 30%;
+    --graph-node-bg: 222 47% 12%;
+
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 187 85% 53%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 47% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 187 85% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glow-border {
+    box-shadow: var(--glow-secondary), inset 0 1px 0 hsl(var(--border) / 0.3);
+  }
+
+  .node-glow {
+    filter: drop-shadow(var(--glow-primary));
+  }
+
+  .graph-node {
+    @apply transition-all duration-300 cursor-pointer;
+  }
+
+  .graph-node:hover {
+    filter: drop-shadow(0 0 25px hsl(var(--primary) / 0.6));
+    transform: scale(1.1);
+  }
+
+  .section-content {
+    @apply overflow-hidden transition-all duration-300 ease-out;
+  }
+
+  .link-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+
+  .link-enabled {
+    @apply text-primary hover:text-primary/80 underline underline-offset-2 cursor-pointer transition-colors;
+  }
+
+  .tab-active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .tab-inactive {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .favorite-star {
+    @apply transition-all duration-200;
+  }
+
+  .favorite-star.active {
+    @apply text-yellow-400 fill-yellow-400;
+  }
+
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-16 text-muted-foreground;
+  }
+
+  .toast-prompt {
+    @apply fixed bottom-4 right-4 bg-popover border border-border px-4 py-3 rounded-lg shadow-lg z-50;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .module-badge {
+    @apply px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .module-api {
+    @apply bg-[hsl(187_85%_53%/0.15)] text-[hsl(187_85%_53%)];
+  }
+
+  .module-auth {
+    @apply bg-[hsl(271_81%_56%/0.15)] text-[hsl(271_81%_56%)];
+  }
+
+  .module-data {
+    @apply bg-[hsl(142_71%_45%/0.15)] text-[hsl(142_71%_45%)];
+  }
+
+  .module-ui {
+    @apply bg-[hsl(38_92%_50%/0.15)] text-[hsl(38_92%_50%)];
+  }
+
+  .module-core {
+    @apply bg-[hsl(346_77%_50%/0.15)] text-[hsl(346_77%_50%)];
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
