@@ -2,6 +2,7 @@ node_modules/
 dist/                       
 web_applications_unzipped/
 web_applications_archive/
+web_applications_hinted/
 .cache/
 .DS_Store
 web_applications/
